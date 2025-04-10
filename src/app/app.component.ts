@@ -21,7 +21,6 @@ export class AppComponent {
 
   }
   title = 'tailwinds';
-  backgroundColor = 'white';  // اللون الافتراضي للخلفية
 
 
   send(){

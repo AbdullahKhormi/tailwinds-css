@@ -11,9 +11,10 @@ button:disabled {
 
 button:disabled:hover,
 button:disabled:active {
-    @apply bg-gray-400 scale-100;
+
+    @apply bg-gray-400 scale-100 transition duration-500 ease-in-out delay-100;
 }
 input{
-    @apply pl-4 focus:bg-black focus:text-sky-300 focus:bg-opacity-50
+    @apply pl-4 focus:bg-black focus:text-sky-300 focus:bg-opacity-50 transition duration-500 ease-in-out
 
 }
