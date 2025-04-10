@@ -1,13 +1,33 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet ,CommonModule, ReactiveFormsModule ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
+  loginForm!:FormGroup
+  constructor(  private fb:FormBuilder
+  ){
+    this.loginForm=fb.group({
+      email:['',[Validators.required , Validators.email]],
+      password:['',Validators.required]
+    })
+
+  }
   title = 'tailwinds';
+  backgroundColor = 'white';  // اللون الافتراضي للخلفية
+
+
+  send(){
+    if(this.loginForm.valid){
+      console.log(this.loginForm.value)
+
+    }
+  }
 }
