@@ -1,4 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Light mode (default) styles can be here if needed, but Tailwind's defaults apply */
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #1e293b; /* Tailwind's gray-900 equivalent in hex */
+  color: #fff; /* White text */
+}
+
+.dark-mode button {
+  @apply bg-slate-600 hover:bg-green-400 text-white; /* White text */
+}
+
+.dark-mode .reset {
+  @apply hover:bg-red-400 text-white; /* Inherits from .dark-mode or explicitly white */
+}
+
+.dark-mode button:disabled {
+  @apply bg-gray-600 text-gray-300;
+}
+
+.dark-mode input {
+  background-color: #fff; /* Tailwind's gray-700 equivalent in hex */
+  color: #fff; /* White text */
+  border-color: #fff; /* Tailwind's gray-600 equivalent in hex */
+}
+
+.dark-mode .bg-slate-500 {
+  background-color: #fff; /* Tailwind's gray-600 equivalent in hex */
+}
+
+.dark-mode .text-black {
+  color: #fff; /* White text */
+}
+
+.dark-mode .border-gray-300 {
+  border-color: #6b7280; /* Tailwind's gray-500 equivalent in hex */
+}

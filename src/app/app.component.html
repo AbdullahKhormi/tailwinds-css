@@ -1,23 +1,32 @@
-<div class="min-h-screen flex items-center justify-center px-4">
-  <div class="bg-slate-500 bg-opacity-50 w-full max-w-sm sm:max-w-md md:max-w-lg  flex flex-col rounded-lg py-16 px-6 sm:px-8 relative">
-
-
-  <form [formGroup]="loginForm">
+<div class="min-h-screen flex items-center justify-center px-4" [ngClass]="{'dark-mode': isDarkMode}">
+  <div class="bg-slate-500 bg-opacity-50 w-full max-w-sm sm:max-w-md md:max-w-lg flex flex-col rounded-lg py-16 px-6 sm:px-8 relative">
     <h3 class="text-black font-bold absolute top-4 opacity-50 text-2xl"> Login </h3>
 
-    <div class="email mb-4">
-      <input type="text" placeholder="Email" class=" w-full p-2 mt-1 border border-gray-300 rounded-lg" formControlName="email" >
-    </div>
-    <div class="password mb-8">
-      <input type="password" placeholder="Password "class="w-full p-2 mt-1 border border-gray-300 rounded-lg" formControlName="password">
-    </div>
-  </form>
+    <form [formGroup]="loginForm">
+      <div class="email mb-4">
+        <input type="text" placeholder="Email" class=" w-full p-2 mt-1 border border-gray-300 rounded-lg" formControlName="email" >
+      </div>
+      <div class="password mb-8">
+        <input type="password" placeholder="Password "class="w-full p-2 mt-1 border border-gray-300 rounded-lg" formControlName="password">
+      </div>
+    </form>
     <div class="buttons flex justify-end gap-4 text-center text-white">
-      <button [disabled]="loginForm.invalid" (click)="send() " class="transition-all duration-300 ease-in ">Send</button>
+      <button [disabled]="loginForm.invalid" (click)="send()" class="transition-all duration-300 ease-in ">Send</button>
       <button class="reset" [disabled]="loginForm.invalid" (click)="loginForm.reset()">Reset</button>
     </div>
     <div *ngIf="loginForm.valid">
       {{loginForm.value|json}}
     </div>
+  </div>
+
+  <div class="absolute top-4 left-4">
+    <label class="inline-flex items-center cursor-pointer">
+      <span class="mr-2 ">Light</span>
+      <input type="checkbox" class="sr-only" (change)="toggleDarkMode()">
+      <span class="relative w-10 h-5 bg-gray-400 rounded-full shadow-inner">
+        <span class="absolute left-1 top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform" [class.translate-x-full]="isDarkMode"></span>
+      </span>
+      <span class="ml-2 ">Dark</span>
+    </label>
   </div>
 </div>
